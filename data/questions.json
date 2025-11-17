@@ -1,0 +1,72 @@
+[
+  {
+    "id": "bienvenida",
+    "prompt": "¡Hola! Soy Beast. ¿Cómo describirías el proyecto personal que más te emociona ahora?",
+    "follow_up": "Genial, cuéntame qué parte disfrutas más de ese proyecto.",
+    "category": "creativity",
+    "weights": {"creativity": 0.6, "communication": 0.2}
+  },
+  {
+    "id": "flujo_optimo",
+    "prompt": "¿En qué momentos pierdes la noción del tiempo porque estás completamente concentrado?",
+    "follow_up": "¿Qué te mantiene tan concentrado en esa actividad?",
+    "category": "problem_solving",
+    "weights": {"analysis": 0.4, "problem_solving": 0.5}
+  },
+  {
+    "id": "tribu_digital",
+    "prompt": "Imagina que el feed perfecto aparece frente a ti. ¿Qué temas destacarían?",
+    "follow_up": "¿Con qué frecuencia exploras esos temas?",
+    "category": "communication",
+    "weights": {"communication": 0.5, "creativity": 0.2}
+  },
+  {
+    "id": "mini_retrospectiva",
+    "prompt": "Cuando algo sale mal, ¿cómo sueles analizar lo que ocurrió?",
+    "follow_up": "¿Tomas notas, lo conversas con alguien o simplemente sigues adelante?",
+    "category": "analysis",
+    "weights": {"analysis": 0.6, "problem_solving": 0.3}
+  },
+  {
+    "id": "energia",
+    "prompt": "¿Qué actividad te recarga de energía mental?",
+    "follow_up": "¿Intentas integrarla en tus rutinas de aprendizaje?",
+    "category": "wellbeing",
+    "weights": {"wellbeing": 0.7}
+  },
+  {
+    "id": "impacto",
+    "prompt": "Si pudieras enseñar algo a otra persona hoy, ¿qué sería?",
+    "follow_up": "¿Por qué consideras que es importante?",
+    "category": "communication",
+    "weights": {"communication": 0.4, "creativity": 0.3}
+  },
+  {
+    "id": "reto_tecnico",
+    "prompt": "¿Cuál fue el último reto técnico o lógico que intentaste resolver?",
+    "follow_up": "¿Qué aprendiste del proceso?",
+    "category": "analysis",
+    "weights": {"analysis": 0.5, "problem_solving": 0.4}
+  },
+  {
+    "id": "habito_aprendizaje",
+    "prompt": "Describe un hábito pequeño que te ayuda a aprender constantemente.",
+    "follow_up": "¿Cómo podríamos reforzarlo dentro de la plataforma?",
+    "category": "wellbeing",
+    "weights": {"wellbeing": 0.5, "problem_solving": 0.2}
+  },
+  {
+    "id": "modo_juego",
+    "prompt": "Si el aprendizaje fuera un juego, ¿qué misiones te motivarían a volver cada día?",
+    "follow_up": "¿Prefieres misiones rápidas o desafíos complejos?",
+    "category": "creativity",
+    "weights": {"creativity": 0.5, "communication": 0.2}
+  },
+  {
+    "id": "ritual_cierre",
+    "prompt": "Cuando cierras tu día, ¿cómo celebras lo que lograste aprender?",
+    "follow_up": "¿Hay algo que quieras mejorar en ese ritual?",
+    "category": "wellbeing",
+    "weights": {"wellbeing": 0.4, "communication": 0.1}
+  }
+]
