@@ -58,6 +58,42 @@ curl -X POST http://localhost:8000/session/start \
 
 **Nota:** En caso de no enviar `display_name`, el backend crea la sesión igualmente y la respuesta siempre incluye la primera pregunta del onboarding.
 
+### Flujo de preguntas posteriores
+
+Una vez creada la sesión puedes continuar con el onboarding usando los siguientes endpoints que ahora devuelven respuestas tipadas:
+
+```bash
+curl http://localhost:8000/session/<SESSION_ID>/question
+```
+
+**Respuesta JSON cuando aún quedan preguntas:**
+
+```json
+{
+  "question": {
+    "id": "q2",
+    "prompt": "¿Qué retos creativos te divierten?",
+    "category": "creatividad",
+    "follow_up": "¿Y cuál intentaste recientemente?",
+    "weights": {"creatividad": 0.6, "tecnologia": 0.4}
+  },
+  "message": null
+}
+```
+
+Cuando no quedan preguntas el backend responde con el campo `message` poblado y `question` en `null` para que el cliente pueda detectar el fin del flujo sin usar condicionales frágiles.
+
+Al enviar una respuesta, el endpoint `/session/{session_id}/question/{question_id}` devuelve siempre el mismo esquema:
+
+```json
+{
+  "answered": { "id": "q2", "prompt": "…" },
+  "next_question": { "id": "q3", "prompt": "…" }
+}
+```
+
+Si ya no existen más preguntas, `next_question` será `null`.
+
 ## Seguridad aplicada
 
 - **Sesiones cifradas**: se generan tokens con `secrets` y se valida su vigencia en cada request.

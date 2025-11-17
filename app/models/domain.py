@@ -51,6 +51,29 @@ class SessionStartResponse(BaseModel):
     question: Question = Field(description="Primera pregunta del onboarding conversacional")
 
 
+class QuestionProgress(BaseModel):
+    """Represents the next step in the onboarding conversation."""
+
+    question: Optional[Question] = Field(
+        default=None,
+        description="Pregunta siguiente si el flujo continúa",
+    )
+    message: Optional[str] = Field(
+        default=None,
+        description="Mensaje informativo cuando ya no quedan preguntas",
+    )
+
+
+class QuestionAnswerResult(BaseModel):
+    """Response returned when the user answers a conversational question."""
+
+    answered: Question = Field(description="Pregunta que acaba de ser respondida")
+    next_question: Optional[Question] = Field(
+        default=None,
+        description="Siguiente pregunta o null si finalizó el onboarding",
+    )
+
+
 class SessionState(BaseModel):
     id: str
     profile: LearnerProfile

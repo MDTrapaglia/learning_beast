@@ -8,6 +8,8 @@ from app.config import get_settings
 from app.core.security import sanitize_free_text
 from app.models.domain import (
     NodeAnswer,
+    QuestionAnswerResult,
+    QuestionProgress,
     QuestionResponse,
     SessionStartRequest,
     SessionStartResponse,
@@ -44,20 +46,23 @@ def start_session(payload: SessionStartRequest | None = None):
     return SessionStartResponse(session_id=session.id, question=question)
 
 
-@app.get("/session/{session_id}/question")
+@app.get("/session/{session_id}/question", response_model=QuestionProgress)
 def fetch_next_question(session_id: str):
     question = session_manager.get_next_question(session_id)
     if not question:
-        return {"message": "Todas las preguntas iniciales fueron respondidas."}
-    return question
+        return QuestionProgress(message="Todas las preguntas iniciales fueron respondidas.")
+    return QuestionProgress(question=question)
 
 
-@app.post("/session/{session_id}/question/{question_id}")
+@app.post(
+    "/session/{session_id}/question/{question_id}",
+    response_model=QuestionAnswerResult,
+)
 def answer_question(session_id: str, question_id: str, payload: QuestionResponse):
     sanitized = sanitize_free_text(payload.answer)
     question = session_manager.submit_question_answer(session_id, question_id, sanitized)
     next_question = session_manager.get_next_question(session_id)
-    return {"answered": question, "next_question": next_question}
+    return QuestionAnswerResult(answered=question, next_question=next_question)
 
 
 @app.get("/node/{node_id}")
