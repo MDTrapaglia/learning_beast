@@ -31,7 +31,8 @@ def get_session_token(x_session_id: str = Header(..., alias="X-Session-Id")) -> 
 # Routes ---------------------------------------------------------------
 @app.post("/session/start")
 def start_session(display_name: str | None = None):
-    session = session_manager.create_session(display_name=display_name)
+    sanitized_display_name = sanitize_free_text(display_name) if display_name else None
+    session = session_manager.create_session(display_name=sanitized_display_name)
     question = session_manager.get_next_question(session.id)
     return {"session_id": session.id, "question": question}
 
