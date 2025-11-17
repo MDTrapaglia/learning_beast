@@ -50,9 +50,26 @@ class SessionManager:
             return None
         return provider.questions[session.question_index]
 
-    def submit_question_answer(self, session_id: str, question_id: str, sanitized_answer: str) -> Question:
+    def submit_question_answer(
+        self, session_id: str, question_id: str, sanitized_answer: str
+    ) -> Question:
         session = self.get_session(session_id)
-        question = self._ensure_question(question_id)
+
+        # Ensure the client is answering the current question surfaced by get_next_question.
+        if session.question_index >= len(provider.questions):
+            raise HTTPException(
+                status_code=status.HTTP_409_CONFLICT,
+                detail="No more onboarding questions available.",
+            )
+
+        expected_question = provider.questions[session.question_index]
+        if question_id != expected_question.id:
+            raise HTTPException(
+                status_code=status.HTTP_409_CONFLICT,
+                detail="Answer must match the current onboarding question.",
+            )
+
+        question = expected_question
         if question.id in session.asked_questions:
             raise HTTPException(status_code=400, detail="Question already answered.")
 
