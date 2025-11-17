@@ -1,0 +1,112 @@
+[
+  {
+    "id": "creative_sprint",
+    "title": "Sprint creativo de 5 minutos",
+    "summary": "Experimenta con ideas rápidas para abrir la sesión.",
+    "category": "creativity",
+    "activity_type": "micro-writing",
+    "content": "Escribe tres ideas para un proyecto que te gustaría explorar esta semana.",
+    "estimated_minutes": 5,
+    "reward_on_completion": 25,
+    "next_nodes": ["logic_lab"]
+  },
+  {
+    "id": "logic_lab",
+    "title": "Laboratorio lógico",
+    "summary": "Pequeño reto de razonamiento.",
+    "category": "analysis",
+    "activity_type": "puzzle",
+    "content": "Resuelve un rompecabezas de patrones numéricos con tres pistas.",
+    "estimated_minutes": 6,
+    "reward_on_completion": 30,
+    "next_nodes": ["storytelling_box"]
+  },
+  {
+    "id": "storytelling_box",
+    "title": "Caja de storytelling",
+    "summary": "Transforma datos en una mini historia.",
+    "category": "communication",
+    "activity_type": "story",
+    "content": "Con los datos del reto anterior, escribe una historia de 100 palabras que explique el hallazgo.",
+    "estimated_minutes": 7,
+    "reward_on_completion": 35,
+    "next_nodes": ["focus_breathing"]
+  },
+  {
+    "id": "focus_breathing",
+    "title": "Respiración enfocada",
+    "summary": "Micro pausa para consolidar el aprendizaje.",
+    "category": "wellbeing",
+    "activity_type": "mindfulness",
+    "content": "Practica un ciclo 4-4-6 de respiración y registra cómo cambió tu energía.",
+    "estimated_minutes": 3,
+    "reward_on_completion": 15,
+    "next_nodes": ["problem_map"]
+  },
+  {
+    "id": "problem_map",
+    "title": "Mapa de problemas",
+    "summary": "Define un problema real usando preguntas guía.",
+    "category": "problem_solving",
+    "activity_type": "framework",
+    "content": "Usa la plantilla de mapa para definir causa, impacto y primeras hipótesis.",
+    "estimated_minutes": 8,
+    "reward_on_completion": 40,
+    "next_nodes": ["habit_tracker"]
+  },
+  {
+    "id": "habit_tracker",
+    "title": "Tracker de hábitos",
+    "summary": "Diseña un hábito de aprendizaje sostenible.",
+    "category": "wellbeing",
+    "activity_type": "reflection",
+    "content": "Selecciona un hábito actual y define señal, rutina y recompensa.",
+    "estimated_minutes": 5,
+    "reward_on_completion": 25,
+    "next_nodes": ["rapid_feedback"]
+  },
+  {
+    "id": "rapid_feedback",
+    "title": "Feedback rápido",
+    "summary": "Aplica comunicación clara para compartir avances.",
+    "category": "communication",
+    "activity_type": "canvas",
+    "content": "Describe tu avance en 3 frases: contexto, progreso y siguiente paso.",
+    "estimated_minutes": 4,
+    "reward_on_completion": 20,
+    "next_nodes": ["creative_pairing"]
+  },
+  {
+    "id": "creative_pairing",
+    "title": "Parejas creativas",
+    "summary": "Combina dos ideas que nunca mezclarías.",
+    "category": "creativity",
+    "activity_type": "mashup",
+    "content": "Une un concepto artístico con un reto técnico y describe el resultado.",
+    "estimated_minutes": 6,
+    "reward_on_completion": 30,
+    "next_nodes": ["data_snapshot"]
+  },
+  {
+    "id": "data_snapshot",
+    "title": "Snapshot de datos personales",
+    "summary": "Convierte hábitos en métricas.",
+    "category": "analysis",
+    "activity_type": "data",
+    "content": "Registra una métrica diaria (ej. minutos de estudio) y analiza su tendencia semanal.",
+    "estimated_minutes": 6,
+    "reward_on_completion": 30,
+    "next_nodes": ["solution_pitch"]
+  },
+  {
+    "id": "solution_pitch",
+    "title": "Pitch de solución",
+    "summary": "Comunica tu solución de forma persuasiva.",
+    "category": "communication",
+    "activity_type": "pitch",
+    "content": "Redacta un pitch de 90 segundos que explique tu solución del mapa de problemas.",
+    "estimated_minutes": 7,
+    "reward_on_completion": 35,
+    "next_nodes": []
+  }
+]
