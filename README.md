@@ -41,7 +41,22 @@ curl -X POST http://localhost:8000/session/start \
   -d '{"display_name": "Sol"}'
 ```
 
-**Nota:** En caso de no enviar `display_name`, el backend crea la sesión igualmente.
+**Respuesta JSON:**
+
+```json
+{
+  "session_id": "b76f...",
+  "question": {
+    "id": "q1",
+    "prompt": "¿Qué temas te inspiran últimamente?",
+    "category": "curiosity",
+    "follow_up": "¿Cómo lo aplicarías?",
+    "weights": {"creatividad": 0.4, "tecnologia": 0.6}
+  }
+}
+```
+
+**Nota:** En caso de no enviar `display_name`, el backend crea la sesión igualmente y la respuesta siempre incluye la primera pregunta del onboarding.
 
 ## Seguridad aplicada
 

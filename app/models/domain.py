@@ -44,6 +44,13 @@ class SessionStartRequest(BaseModel):
     )
 
 
+class SessionStartResponse(BaseModel):
+    """Payload returned when the session starts successfully."""
+
+    session_id: str = Field(description="Identifier that must be sent on follow up calls")
+    question: Question = Field(description="Primera pregunta del onboarding conversacional")
+
+
 class SessionState(BaseModel):
     id: str
     profile: LearnerProfile

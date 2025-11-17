@@ -6,7 +6,12 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import get_settings
 from app.core.security import sanitize_free_text
-from app.models.domain import NodeAnswer, QuestionResponse, SessionStartRequest
+from app.models.domain import (
+    NodeAnswer,
+    QuestionResponse,
+    SessionStartRequest,
+    SessionStartResponse,
+)
 from app.services.session_manager import session_manager
 
 app = FastAPI(title="Learning Beast", version="0.1.0", description="Adaptive learning MVP")
@@ -29,14 +34,14 @@ def get_session_token(x_session_id: str = Header(..., alias="X-Session-Id")) -> 
 
 
 # Routes ---------------------------------------------------------------
-@app.post("/session/start")
+@app.post("/session/start", response_model=SessionStartResponse)
 def start_session(payload: SessionStartRequest | None = None):
     display_name = None
     if payload and payload.display_name:
         display_name = sanitize_free_text(payload.display_name)
     session = session_manager.create_session(display_name=display_name)
     question = session_manager.get_next_question(session.id)
-    return {"session_id": session.id, "question": question}
+    return SessionStartResponse(session_id=session.id, question=question)
 
 
 @app.get("/session/{session_id}/question")
